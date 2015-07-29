@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Mongo Connectivity</title>
+
+    <!-- Style resources -->
+    <link rel="stylesheet" href="components/agrista-styles/dist/css/agrista-bootstrap.css">
+    <link rel="stylesheet" href="components/agrista-styles/dist/css/agrista-glyphicons.css">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+
+    <!-- Resources -->
+    <script type="text/javascript" src="components/jquery/dist/jquery.min.js?v=1.2.0-2"></script>
+    <script type="text/javascript" src="components/agrista-styles/dist/js/agrista-styles.min.js"></script>
+
+    <!-- Angular resources -->
+    <script type="text/javascript" src="components/angular/angular.js"></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
+</head>
+<body>
+    <div class="row" style="margin-top: 60px">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="panel panel-default" ng-controller="MainController">
+                <div class="panel-body">
+                    <form name="details" class="form form-horizontal">
+                        <div class="form-group" ng-class="{'has-error': details.uri.$invalid}">
+                            <label class="col-sm-4 control-label">URI</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control" min-length="1" type="text" name="uri" ng-model="request.uri" placeholder="e.g. mongodb://192.168.2.110:27017/play" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <button class="btn btn-primary" ng-click="sendRequest()" ng-disabled="details.uri.$invalid || request.busy">{{ request.busy ? 'Sending' : 'Test' }}</button>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="response">
+                            <div class="col-sm-12">
+                                {{ response.data }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

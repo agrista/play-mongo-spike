@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+POST    /set-config                 controllers.Application.setConfig(uri: String ?= null)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /                           controllers.Assets.at(path="/public", file="index.html")
+GET     /*file                      controllers.Assets.at(path="/public", file)

@@ -1,4 +1,6 @@
 # Ignore Play! working directory #
+.idea/
+/public/components/
 bin/
 /db
 .eclipse
