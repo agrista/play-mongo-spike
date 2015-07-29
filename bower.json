@@ -1,0 +1,23 @@
+{
+    "name": "play-mongo-spike",
+    "version": "1.0.0",
+    "homepage": "https://github.com/agrista/play-mongo-spike",
+    "authors": [
+        "Ross Savage <ross.savage@agrista.com>"
+    ],
+    "description": "Mongo Connectivity Test",
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "public/components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "agrista-styles": "git@bitbucket.org:agrista/styles.git#0.0.7",
+        "angular": "https://github.com/angular/bower-angular.git#1.2.9",
+        "jquery": "https://github.com/jquery/jquery.git#2.1.0"
+    }
+}

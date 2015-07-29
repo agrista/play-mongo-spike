@@ -1,17 +1,29 @@
-name := """play-mongo"""
+import com.github.play2war.plugin._
+import PlayKeys._
 
-version := "1.0-SNAPSHOT"
+name := "mongo-connectivity"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+version := "1.0-SNAPSHOT-big"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.10.4"
 
 libraryDependencies ++= Seq(
-  javaJdbc,
-  javaEbean,
-  cache,
-  javaWs
+    // for Mongo DB access with Jongo
+    "org.mongodb" % "mongo-java-driver" % "3.0.1",
+    "org.jongo" % "jongo" % "1.2",
+
+    javaJdbc,
+    javaEbean,
+    cache,
+    javaWs
 )
 
+Play2WarPlugin.play2WarSettings
 
-fork in run := true
+Play2WarKeys.servletVersion := "3.0"
+
+Play2WarKeys.explodedJar := true
+
+Play2WarKeys.filteredArtifacts := Seq(("com.typesafe.play","play_2.10"))
+
+lazy val root = (project in file(".")).enablePlugins(PlayJava)

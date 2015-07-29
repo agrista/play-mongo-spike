@@ -1,0 +1,13 @@
+<project name="mongo-connectivity" default="test" basedir=".">
+    <description>
+        mongo connection test
+    </description>
+    <!-- set global properties for this build -->
+    <property name="war" location="target/mongo-connectivity-1.0-SNAPSHOT-big.war"/>
+
+    <target name="test" description="remove from war">
+        <war needxmlfile="false" destfile="target/mongo-connectivity-1.0-SNAPSHOT.war" update="true">
+            <zipfileset src="${war}" excludes="**/com.ibm.*.*,**/ojdbc6*.*,**/postgres*.*,**/org.scala-lang.scala-compiler-2.10.4.jar"/>
+        </war>
+    </target>
+</project>
